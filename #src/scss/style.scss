@@ -1,0 +1,172 @@
+@mixin font($font_name, $file_name, $weight, $style) {
+	@font-face {
+	font-family: $font_name;
+	font-display: swap;
+	src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+	font-weight: #{$weight};
+	font-style: #{$style};
+	}
+}
+// Подключение шрифтов
+@import "fonts";
+
+
+//===============================================================================================================================================================================================
+// Обнуление
+*{padding: 0;margin: 0;border: 0;}
+*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{height:100%;width:100%;font-size:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
+//===============================================================================================================================================================================================
+// Media 
+$md1 : 991.98px;
+$md2 : 767px;
+$md3 : 480px;
+$md4 : 320px;
+// =====================================================================================================================================================================================================
+// Переменные
+// $main-color: ;
+// $darker-color :;
+$main-font : 'Open Sans', sans-serif;
+$sec-font :'Montserrat', sans-serif;
+
+
+// =====================================================================================================================================================================================================
+// Import
+// @import "owl.carousel.min";
+// @import "owl.theme.default.min";
+@import "ui";
+// =====================================================================================================================================================================================================
+body {
+	font-family: $main-font;
+}
+// Container
+// .container {
+// 	max-width: 1180px;
+// 	padding: 0 20px;
+// 	margin: 0 auto;
+// 	@media (max-width: $md4) {
+// 		min-width: 320px;
+// 	}
+// }
+
+
+
+.header {
+	font-family: $sec-font;
+	text-transform: uppercase;
+}
+.container {
+}
+.navbar {
+	padding: 45px 0;
+}
+.navbar-expand-lg {
+}
+.navbar-brand {
+	color: #60606e;
+	font-size: 18px;
+	&:hover {
+		color: #60606e;
+	}
+}
+.burger {
+}
+.collapse {
+}
+.navbar-collapse {
+	justify-content: flex-end;
+	@media (max-width: $md1) {
+		margin-top: 20px;
+	}
+}
+.navbar-nav {
+	align-items: flex-end;
+	@media (max-width: $md1) {
+		width: 280px;
+		// align-items: center;
+		margin-left: auto;
+		background-color: #60606e;
+		padding: 10px 0;
+	}
+}
+.nav-item {
+	@media (min-width: $md1) {
+		&:hover {
+			.nav-link:before {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+	}
+	@media (max-width: $md1) {
+		display: block;
+		width: 100%;
+		text-align: center;
+		padding: 5px 0;
+		background-color: #60606e;
+	}
+}
+.nav-link {
+	color: #60606e;
+	font-size: 12px;
+	position: relative;
+	&:before {
+		position: absolute;
+		bottom: 100%;
+		content: '';
+		display: block;
+		width: 50%;
+		height: 1px;
+		background-color: #000;
+		opacity: 0;
+		transform: translateY(13px);
+		transition: transform .2s ease, opacity .2s ease;
+	}
+	&:hover {
+		color: #60606e;
+	}
+	@media (max-width: $md1) {
+		color: #fff;
+		&:hover {
+			color: #fff;
+		}
+	}
+}
+.dropdown-slide {
+	position: relative;
+	&__menu {
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: 0;
+	}
+	&__item {
+		white-space: nowrap;
+		display: block;
+		color: #fff;
+		background-color: #60606e;
+		line-height: 40px;
+		padding: 0 20px;
+		&:nth-child(even) {
+			background-color: #585866;
+		}
+		@media (min-width: $md1) {
+			&:hover {
+				background-color: #404051;
+				color: #fff;
+			}
+		}
+	}
+}
